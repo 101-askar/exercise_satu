@@ -1,3 +1,4 @@
+import 'package:exercise_satu/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -111,6 +112,11 @@ class LoginPage extends StatelessWidget {
                                     TextButton(
                                       onPressed: () {
                                         // navigate to register page
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    RegisterPage()));
                                       },
                                       child: Text('Register'),
                                       style: TextButton.styleFrom(
