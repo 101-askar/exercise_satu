@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
                     children: <Widget>[
                       TextFormField(
                         decoration: const InputDecoration(
-                          hintText: 'Enter your email',
+                          hintText: 'Enter your username',
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
@@ -68,6 +68,11 @@ class LoginPage extends StatelessWidget {
                             ),
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
+                          suffixIcon: Icon(
+                            /*  */
+                            Icons.remove_red_eye,
+                            color: Colors.white,
+                          ),
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -94,8 +99,8 @@ class LoginPage extends StatelessWidget {
                                     if (_formKey.currentState!.validate()) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(SnackBar(
-                                              content:
-                                                  Text('Not Resgitrated Yet. Please Register First')));
+                                              content: Text(
+                                                  'Not Resgitrated Yet. Please Register First')));
                                     }
                                   },
                                   child: Text(
