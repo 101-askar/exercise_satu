@@ -67,7 +67,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        hintText: 'Enter your username',
+                        hintText: 'Enter your email',
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.white,
@@ -88,7 +88,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        hintText: 'Enter your username',
+                        hintText: 'Enter your password',
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.white,
@@ -109,7 +109,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                        hintText: 'Enter your username',
+                        hintText: 'Re-Enter your password',
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.white,
