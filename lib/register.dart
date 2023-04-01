@@ -110,6 +110,11 @@ class RegisterPage extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                         ),
+                        suffixIcon: Icon(
+                          /*  */
+                          Icons.remove_red_eye,
+                          color: Colors.white,
+                        ),
                       ),
                       validator: (String? value) {
                         if (value!.isEmpty) {
@@ -131,6 +136,11 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(15)),
+                        ),
+                        suffixIcon: Icon(
+                          /*  */
+                          Icons.remove_red_eye,
+                          color: Colors.white,
                         ),
                       ),
                       validator: (String? value) {
