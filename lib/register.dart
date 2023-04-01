@@ -42,6 +42,7 @@ class RegisterPage extends StatelessWidget {
               height: 400,
               // color: Colors.black38,
               child: Form(
+                key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -94,12 +95,13 @@ class RegisterPage extends StatelessWidget {
                         } else if (value.length > 15) {
                           return "Password should not be greater than 15 characters";
                         } else if (!regex.hasMatch(value)) {
-                          "Enter a valid email";
+                          return "Enter a valid email";
                         } else
                           return null;
                       },
                     ),
                     TextFormField(
+                      obscureText: true,
                       decoration: const InputDecoration(
                         hintText: 'Enter your password',
                         enabledBorder: OutlineInputBorder(
@@ -107,11 +109,6 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(15)),
-                        ),
-                        suffixIcon: Icon(
-                          /*  */
-                          Icons.remove_red_eye,
-                          color: Colors.white,
                         ),
                       ),
                       validator: (String? value) {
@@ -126,6 +123,7 @@ class RegisterPage extends StatelessWidget {
                       },
                     ),
                     TextFormField(
+                      obscureText: true,
                       decoration: const InputDecoration(
                         hintText: 'Re-Enter your password',
                         enabledBorder: OutlineInputBorder(
@@ -133,11 +131,6 @@ class RegisterPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(15)),
-                        ),
-                        suffixIcon: Icon(
-                          /*  */
-                          Icons.remove_red_eye,
-                          color: Colors.white,
                         ),
                       ),
                       validator: (String? value) {
@@ -153,13 +146,14 @@ class RegisterPage extends StatelessWidget {
                     ),
                     ElevatedButton(
                         onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  content: Text(usernameController.text),
-                                );
-                              });
+                          if (_formKey.currentState!.validate()) {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                      content: Text(usernameController.text));
+                                });
+                          }
                         },
                         child: Text("Register"),
                         style: ElevatedButton.styleFrom(

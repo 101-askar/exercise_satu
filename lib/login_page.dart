@@ -51,8 +51,9 @@ class LoginPage extends StatelessWidget {
                             return "Password should be atleast 6 characters";
                           } else if (value.length > 15) {
                             return "Password should not be greater than 15 characters";
-                          } else
+                          } else {
                             return null;
+                          }
                         },
                       ),
                       Padding(
@@ -74,15 +75,16 @@ class LoginPage extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        validator: (value) {
+                        validator: (String? value) {
                           if (value!.isEmpty) {
                             return "* Required";
                           } else if (value.length < 6) {
                             return "Password should be atleast 6 characters";
                           } else if (value.length > 15) {
                             return "Password should not be greater than 15 characters";
-                          } else
+                          } else {
                             return null;
+                          }
                         },
                       ),
                       Container(
