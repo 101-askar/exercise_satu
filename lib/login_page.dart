@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
                 margin: EdgeInsetsDirectional.only(top: 300),
                 width: 320,
                 height: 450,
-                color: Colors.white38,
+                // color: Colors.white38,
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -44,11 +44,15 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                         ),
-                        validator: (value) {
+                        validator: (String? value) {
                           if (value!.isEmpty) {
-                            return 'Username tidak boleh kosong';
-                          }
-                          return null;
+                            return "* Required";
+                          } else if (value.length < 6) {
+                            return "Password should be atleast 6 characters";
+                          } else if (value.length > 15) {
+                            return "Password should not be greater than 15 characters";
+                          } else
+                            return null;
                         },
                       ),
                       Padding(
@@ -67,22 +71,33 @@ class LoginPage extends StatelessWidget {
                         ),
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
+                            return "* Required";
+                          } else if (value.length < 6) {
+                            return "Password should be atleast 6 characters";
+                          } else if (value.length > 15) {
+                            return "Password should not be greater than 15 characters";
+                          } else
+                            return null;
                         },
                       ),
                       Container(
                         width: 320,
                         height: 50,
-                        color: Colors.black26,
+                        // color: Colors.black26,
                         margin: EdgeInsetsDirectional.only(top: 100),
                         child: Column(
                           children: <Widget>[
                             Container(
                                 width: 320,
                                 child: ElevatedButton(
-                                  onPressed: () {/* validate */},
+                                  onPressed: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              content:
+                                                  Text('Not Resgitrated Yet. Please Register First')));
+                                    }
+                                  },
                                   child: Text(
                                     'Login',
                                     style: TextStyle(
@@ -103,7 +118,7 @@ class LoginPage extends StatelessWidget {
                       Container(
                         width: 320,
                         height: 50,
-                        color: Colors.blueGrey,
+                        // color: Colors.blueGrey,
                         margin: EdgeInsetsDirectional.only(top: 30),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
