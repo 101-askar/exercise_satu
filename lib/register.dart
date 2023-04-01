@@ -6,6 +6,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+    final usernameController = TextEditingController();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -54,6 +55,7 @@ class RegisterPage extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                         ),
                       ),
+                      controller: usernameController,
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "* Required";
@@ -129,7 +131,15 @@ class RegisterPage extends StatelessWidget {
                       },
                     ),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  content: Text(usernameController.text),
+                                );
+                              });
+                        },
                         child: Text("Register"),
                         style: ElevatedButton.styleFrom(
                             primary: Color.fromRGBO(255, 215, 2, 1),
