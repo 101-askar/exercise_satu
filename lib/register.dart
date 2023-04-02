@@ -167,20 +167,20 @@ class RegisterPage extends StatelessWidget {
                     ),
                     ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HomePage(
-                                        usernameController:
-                                            usernameController)));
                             // showDialog(
                             //     context: context,
                             //     builder: (context) {
                             //       return AlertDialog(
                             //           content: Text(usernameController.text));
                             //     });
-                          }
+                          // if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage(
+                                        usernameController:
+                                            usernameController)));
+                          // }
                         },
                         child: Text("Register"),
                         style: ElevatedButton.styleFrom(
