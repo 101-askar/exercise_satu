@@ -1,3 +1,4 @@
+import 'package:exercise_satu/home_page.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -7,6 +8,8 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     final usernameController = TextEditingController();
+    final passwordController = TextEditingController();
+    final retypePasswordController = TextEditingController();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -116,6 +119,7 @@ class RegisterPage extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
+                      controller: passwordController,
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "* Required";
@@ -123,6 +127,9 @@ class RegisterPage extends StatelessWidget {
                           return "Password should be atleast 6 characters";
                         } else if (value.length > 15) {
                           return "Password should not be greater than 15 characters";
+                        } else if (retypePasswordController.text !=
+                            passwordController.text) {
+                          return "Password does not match";
                         } else
                           return null;
                       },
@@ -143,6 +150,7 @@ class RegisterPage extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
+                      controller: retypePasswordController,
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "* Required";
@@ -150,6 +158,9 @@ class RegisterPage extends StatelessWidget {
                           return "Password should be atleast 6 characters";
                         } else if (value.length > 15) {
                           return "Password should not be greater than 15 characters";
+                        } else if (retypePasswordController.text !=
+                            passwordController.text) {
+                          return "Password does not match";
                         } else
                           return null;
                       },
@@ -157,12 +168,18 @@ class RegisterPage extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                      content: Text(usernameController.text));
-                                });
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage(
+                                        usernameController:
+                                            usernameController)));
+                            // showDialog(
+                            //     context: context,
+                            //     builder: (context) {
+                            //       return AlertDialog(
+                            //           content: Text(usernameController.text));
+                            //     });
                           }
                         },
                         child: Text("Register"),
