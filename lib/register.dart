@@ -173,14 +173,14 @@ class RegisterPage extends StatelessWidget {
                             //       return AlertDialog(
                             //           content: Text(usernameController.text));
                             //     });
-                          // if (_formKey.currentState!.validate()) {
+                          if (_formKey.currentState!.validate()) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => HomePage(
                                         usernameController:
                                             usernameController)));
-                          // }
+                          }
                         },
                         child: Text("Register"),
                         style: ElevatedButton.styleFrom(
