@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
           Container(
             height: 100,
             margin: EdgeInsets.only(top: 50, left: 20, right: 20),
-            color: Colors.white30,
+            // color: Colors.white30,
           ),
           /* name container */
           Container(
@@ -65,11 +65,65 @@ class HomePage extends StatelessWidget {
             ),
             alignment: Alignment.centerLeft,
           ),
+          /* profile picture container */
+          Container(
+            height: 90,
+            width: 90,
+            margin: EdgeInsets.only(top: 55, left: 295, right: 20),
+            // color: Colors.red,
+            child: const CircleAvatar(
+              // background from internet,
+              backgroundImage: NetworkImage(
+                  'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/005.png'),
+            ),
+          ),
           /* search container */
           Container(
+            // alignment: AlignmentDirectional.center,
             height: 70,
             margin: EdgeInsets.only(top: 160, left: 20, right: 20),
-            color: Colors.deepOrangeAccent,
+            // color: Colors.deepOrangeAccent,
+            child: Row(
+              children: [
+                /* search bar */
+                Container(
+                  alignment: AlignmentDirectional.center,
+                  height: 50,
+                  width: 250,
+                  margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                  // color: Colors.white,
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search Pokemon',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                      ),
+                    ),
+                  ),
+                ),
+                /* search button */
+                Container(
+                  height: 50,
+                  width: 50,
+                  margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                  // color: Colors.white,
+                  child: const Icon(
+                    Icons.search,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
           ),
           /* card container */
           Container(
