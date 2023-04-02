@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/home-page.png'),
+                image: AssetImage('assets/images/home-page-layout.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -75,6 +75,7 @@ class HomePage extends StatelessWidget {
               // background from internet,
               backgroundImage: NetworkImage(
                   'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/005.png'),
+              backgroundColor: Color.fromRGBO(255, 215, 2, 1),
             ),
           ),
           /* search container */
@@ -122,17 +123,6 @@ class HomePage extends StatelessWidget {
                     size: 30,
                   ),
                 ),
-              ],
-            ),
-          ),
-          /* card container */
-          Container(
-            height: 550,
-            margin: EdgeInsets.only(top: 250, left: 20, right: 20),
-            color: Colors.white30,
-            child: Row(
-              children: [
-                /* card view */
               ],
             ),
           ),
